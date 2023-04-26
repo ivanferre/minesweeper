@@ -36,9 +36,6 @@ for (var row = 0; row < ROWS_COUNT; row++) {
 // cells[8][2].isBomb = true;
 // cells[9][9].isBomb = true;
 
-//
-
-//
 // TODO: Task 2 - Comment out the code of task 1. Instead of adding bombs in fixed places, add 10 of them in random places.
 // Add a BOMBS_COUNT constant so that you can easily change the amount of bombs placed. Put it next to the other constants.
 let x = 0; let y = 0;
@@ -78,13 +75,38 @@ function flagCell(row, col) {
     //
 }
 
-// This function is called once for each cell when rendering the game. The row and col of the current cell is
-// passed to the functionn
+// This function is called once for each cell when rendering the game.
+// The row and col of the current cell is passed to the functionn
 function countAdjacentBombs(row, col) {
-    //
-    // TODO: Task 4 - Adjacent bombs are bombs in cells touching our cell (also diagonally). Implement this function
-    //                so that it returns the count of adjacent cells with bombs in them. 
-    //
+    // TODO: Task 4 - Adjacent bombs are bombs in cells touching our cell (also diagonally).
+    // Implement this function so that it returns the count of adjacent cells with bombs in them.
+
+    let numBombs = 0;
+
+    // row above the cell
+    if (row - 1 >= 0) {
+        if (col - 1 >= 0) {
+            if (isBomb(row - 1, col - 1)) { numBombs++; }
+        }
+
+        if (isBomb(row - 1, col)) { numBombs++; }
+
+        if (col + 1 < COLS_COUNT) {
+            if (isBomb(row - 1, col + 1)) { numBombs++; }
+        }
+    }
+
+    // same row cells
+    if (col - 1 >= 0) {
+        if (cell[row][col - 1].isBomb) { numBombs++; }
+    }
+    if (col + 1 < COLS_COUNT) {
+        if (cell[row][col + 1].isBomb) { numBombs++; }
+    }
+
+    // row below the cell
+    // TODO: NEXT
+    
     return 1;
 }
 
