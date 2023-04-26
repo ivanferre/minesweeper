@@ -2,3 +2,4 @@
 .config/configstore/update-notifier-npm.json
 replit.nix
 .replit
+.vscode/settings.json
