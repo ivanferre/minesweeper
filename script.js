@@ -18,6 +18,18 @@ function Cell() {
     this.hasBeenFlagged = false;
 }
 
+function isBomb(x, y) {
+
+    if ((x < 0) || (y < 0) || (x >= ROWS_COUNT) || (y >= COLS_COUNT)) {
+        console.log(`Position [${x}][${y}] is out of range.`);
+        return false;
+    }
+    let bool = cells[x][y].isBomb;
+    let str = (bool ? "a" : "no");
+    console.log(`There is ${str} at [${x}][${y}]`);
+    return bool;
+}
+
 // Initialize cells
 var cells = Array(ROWS_COUNT);
 for (var row = 0; row < ROWS_COUNT; row++) {
@@ -80,13 +92,13 @@ function flagCell(row, col) {
 function countAdjacentBombs(row, col) {
     // TODO: Task 4 - Adjacent bombs are bombs in cells touching our cell (also diagonally).
     // Implement this function so that it returns the count of adjacent cells with bombs in them.
-
     let numBombs = 0;
 
     // row above the cell
     if (row - 1 >= 0) {
         if (col - 1 >= 0) {
             if (isBomb(row - 1, col - 1)) { numBombs++; }
+            console.log (`Bomb at [${row}][${col}]`);
         }
 
         if (isBomb(row - 1, col)) { numBombs++; }
@@ -97,18 +109,29 @@ function countAdjacentBombs(row, col) {
     }
 
     // same row cells
-    if (col - 1 >= 0) {
-        if (cell[row][col - 1].isBomb) { numBombs++; }
+    if ((col - 1) >= 0) {
+        
+        if (isBomb(row, col-1)) { numBombs++; }
     }
-    if (col + 1 < COLS_COUNT) {
-        if (cell[row][col + 1].isBomb) { numBombs++; }
+    if ((col + 1) < COLS_COUNT) {
+        if (isBomb(row, col+1)) { numBombs++; }
     }
 
     // row below the cell
-    // TODO: NEXT
+    if (row + 1 < ROWS_COUNT) {
+        if (col - 1 >= 0) {
+            if (isBomb(row + 1, col - 1)) { numBombs++; }
+        }
+
+        if (isBomb(row + 1, col)) { numBombs++; }
+
+        if (col + 1 < COLS_COUNT) {
+            if (isBomb(row + 1, col + 1)) { numBombs++; }
+        }
+    }
     
-    return 1;
-}
+    return numBombs;
+ }
 
 function getBombsCount() {
     //
