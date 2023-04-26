@@ -1,10 +1,12 @@
 
-// Set this constant to true to debug the placement of bombs without
-// having to click on all cells to reveal them.
-const CHEAT_REVEAL_ALL = false;
+// ! Set this constant to true to debug the placement of bombs without
+// ! having to click on all cells to reveal them.
+const CHEAT_REVEAL_ALL = true;
 
 const ROWS_COUNT = 10;
 const COLS_COUNT = 10;
+
+const BOMBS_COUNT = 6;
 
 var defeat = false;
 var victory = false;
@@ -26,14 +28,25 @@ for (var row = 0; row < ROWS_COUNT; row++) {
 }
 
 //
-// TODO: Task 1 - add some bombs at fixed positions.
+//Task 1 - add some bombs at fixed positions.
+// cells[0][0].isBomb = true;
+// cells[1][7].isBomb = true;
+// cells[4][9].isBomb = true;
+// cells[9][2].isBomb = true;
+// cells[8][2].isBomb = true;
+// cells[9][9].isBomb = true;
+
 //
 
 //
 // TODO: Task 2 - Comment out the code of task 1. Instead of adding bombs in fixed places, add 10 of them in random places.
-//                Add a BOMBS_COUNT constant so that you can easily change the amount of bombs placed. Put it next to the
-//                other constants.
-//
+// Add a BOMBS_COUNT constant so that you can easily change the amount of bombs placed. Put it next to the other constants.
+let x = 0; let y = 0;
+for (let i = 0; i <= BOMBS_COUNT; i++){
+    x = Math.floor(Math.random() * 10);
+    y = Math.floor(Math.random() * 10);
+    cells[x][y].isBomb = true;
+}
 
 
 // Once the game has been initialized, we "render" it.
