@@ -15,7 +15,7 @@ var victory = false;
 var numFlaggedCells = 0;
 var numClearedCells = 0;
 
-var bombsCount = numBombsToFind();
+var bombsCount = getBombsCount();
 var clearedCellsCount = numCellsToClear();
 
 function numCellsToClear()
@@ -26,18 +26,11 @@ function numCellsToClear()
     let clearedField = document.getElementById("cleared-cells-count");
     clearedField.textContent = cleared;
     let pendingField = document.getElementById("total-cells-to-clear");
-    pendingField.textContent = pending;
+    pendingField.textContent = CELLS_TO_CLEAR;
 
+    // ! DEBUG
+    console.log(`numCellsToClear returns ${cleared}/${CELLS_TO_CLEAR}`)
     return pending;
-}
-
-function numBombsToFind() {
-
-    let pending = BOMBS_COUNT- numFlaggedCells
-    let bombsCounter = document.getElementById("bombs-count");
-    bombsCounter.textContent = pending;
-
-    return pending ;
 }
 
 // Cell constructor
@@ -144,7 +137,7 @@ function flagCell(row, col) {
         cells[row][col].hasBeenFlagged = true;
         numFlaggedCells++;
     }
-
+    bombsCount = getBombsCount();
     clearedCellsCount = numCellsToClear();
 }
 
@@ -173,15 +166,20 @@ function countAdjacentBombs(row, col) {
 function getBombsCount() {
     //
     // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
-    //
-    return 0;
+    let pending = BOMBS_COUNT- numFlaggedCells
+    let bombsCounter = document.getElementById("bombs-count");
+    bombsCounter.textContent = pending;
+
+    // ! DEBUG
+    console.log(`getBombsCount returns ${pending}.`);
+    return pending ;
 }
 
 function getClearedCells() {
-    //
-    // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
-    //
-    return 0;
+
+    // Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
+
+    return numClearedCells;
 }
 
 function getTotalCellsToClear() {
