@@ -78,7 +78,7 @@ for (var row = 0; row < ROWS_COUNT; row++) {
 // TODO: Task 2 - Comment out the code of task 1. Instead of adding bombs in fixed places, add 10 of them in random places.
 // Add a BOMBS_COUNT constant so that you can easily change the amount of bombs placed. Put it next to the other constants.
 let x = 0; let y = 0;
-for (let i = 0; i <= BOMBS_COUNT; i++){
+for (let i = 0; i < BOMBS_COUNT; i++) {
     x = Math.floor(Math.random() * 10);
     y = Math.floor(Math.random() * 10);
     cells[x][y].isBomb = true;
@@ -186,14 +186,14 @@ function getTotalCellsToClear() {
     //
     // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
     //
-    return 0;
+    return CELLS_TO_CLEAR;
 }
 
 function checkForVictory() {
     //
     // TODO: Task 10 - Implement victory. If the player has revealed as many cells as they must (every cell that isn't a  bomb), set variable victory to true.
     //
-    return 0;
+    return (0 == (getClearedCells() - getTotalCellsToClear()));
 }
 
 //
