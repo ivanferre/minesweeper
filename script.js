@@ -23,9 +23,16 @@ function isBomb(x, y) {
     if ((x < 0) || (y < 0) || (x >= ROWS_COUNT) || (y >= COLS_COUNT)) {
         return false;
     }
-    let bool = cells[x][y].isBomb;
-    let str = (bool ? "a" : "no");
-    return bool;
+
+    return cells[x][y].isBomb;
+}
+
+function flipCell(x, y) {
+    if ((x < 0) || (y < 0) || (x >= ROWS_COUNT) || (y >= COLS_COUNT)) {
+        return false;
+    }
+
+    discoverCell(x, y);
 }
 
 // Initialize cells
@@ -71,8 +78,16 @@ function discoverCell(row, col) {
     let adjacentBombs = countAdjacentBombs(row, col);
 
     // TODO: Task 6 - Discover neighbor cells recursively, as long as there are no adjacent bombs to the current cell.
+    // TODO: "Too much recursion".
     if (0 == adjacentBombs) {
-        // TODO ;
+        flipCell(row - 1, col - 1);
+        flipCell(row - 1, col);
+        flipCell(row - 1, col + 1);
+        flipCell(row, col - 1);
+        flipCell(row - 1, col + 1);
+        flipCell(row + 1, col - 1);
+        flipCell(row + 1, col);
+        flipCell(row + 1, col + 1);
     }
     //
 
