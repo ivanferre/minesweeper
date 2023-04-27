@@ -75,7 +75,9 @@ render();
 function discoverCell(row, col) {
     //
     // Task 5 - Reveal cells when clicked.
-    if (cells[row][col].discovered || cells[row][col].hasBeenFlagged) { return;  }
+    if (cells[row][col].discovered || cells[row][col].hasBeenFlagged) {
+        return;
+    }
 
     cells[row][col].discovered = true;
     let adjacentBombs = countAdjacentBombs(row, col);
@@ -90,16 +92,16 @@ function discoverCell(row, col) {
         flipCell(row + 1, col);
         flipCell(row + 1, col + 1);
     }
-    //
-
-    //
-    // TODO: Task 8 - Implement defeat. If the player "discovers" a bomb (clicks on it without holding shift), set the variable defeat to true.
-    // defeat = true;
+ 
+     // Task 8 - Implement defeat. If the player "discovers" a bomb (clicks on it without holding shift), set the variable defeat to true.
+    if (isBomb(row, col)) {
+        defeat = true;
+    }
 }
 
     // When clicking a cell and holding shift, function flagCell() will be called for you.
 function flagCell(row, col) {
-    // TODO: Task 7 - Implement flags. Flags allow the player to mark cells that they think contain a bomb.
+    // Task 7 - Implement flags. Flags allow the player to mark cells that they think contain a bomb.
     //
     cells[row][col].hasBeenFlagged = !cells[row][col].hasBeenFlagged;
 }
