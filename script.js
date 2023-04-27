@@ -71,14 +71,16 @@ render();
 // Game functions definitions
 //
 
+    // TODO: Task 6 - Discover neighbor cells recursively, as long as there are no adjacent bombs to the current cell.
+    // TODO: "Too much recursion".
 function discoverCell(row, col) {
     //
     // Task 5 - Reveal cells when clicked.
+    if (cells[row][col].discovered) { return;  }
+
     cells[row][col].discovered = true;
     let adjacentBombs = countAdjacentBombs(row, col);
 
-    // TODO: Task 6 - Discover neighbor cells recursively, as long as there are no adjacent bombs to the current cell.
-    // TODO: "Too much recursion".
     if (0 == adjacentBombs) {
         flipCell(row - 1, col - 1);
         flipCell(row - 1, col);
