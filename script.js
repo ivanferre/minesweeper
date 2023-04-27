@@ -29,7 +29,7 @@ function numCellsToClear()
     pendingField.textContent = CELLS_TO_CLEAR;
 
     // ! DEBUG
-    console.log(`numCellsToClear returns ${cleared}/${CELLS_TO_CLEAR}`)
+    // console.log(`numCellsToClear returns ${cleared}/${CELLS_TO_CLEAR}`)
     return pending;
 }
 
@@ -171,28 +171,26 @@ function getBombsCount() {
     bombsCounter.textContent = pending;
 
     // ! DEBUG
-    console.log(`getBombsCount returns ${pending}.`);
+    // console.log(`getBombsCount returns ${pending}.`);
     return pending ;
 }
 
 function getClearedCells() {
-
     // Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
-
     return numClearedCells;
 }
 
 function getTotalCellsToClear() {
-    //
-    // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
-    //
+    // Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
     return CELLS_TO_CLEAR;
 }
 
 function checkForVictory() {
     //
     // TODO: Task 10 - Implement victory. If the player has revealed as many cells as they must (every cell that isn't a  bomb), set variable victory to true.
-    //
+    // ! DEBUG
+    console.log("Check for Victory");
+    console.log(`getClearedCells() - getTotalCellsToClear() = ${getClearedCells()} - ${getTotalCellsToClear()}.`)
     return (0 == (getClearedCells() - getTotalCellsToClear()));
 }
 
