@@ -12,12 +12,15 @@
 
 - Customize play:
 
-  - Set number of bombs
-  - Set size
-  - Set dificulty level (size and bombs)
+  - Set number of bombs.
+  - Set size.
+  - Set dificulty level (size and bombs).
   - Inform about SHIFT to flag.
+  - Make it responsive.
   - Alternative way to flag.
     - Let the user choose the way to flag.
-  - display How to Play
-  - Keep track of playing time
-  - Scores (based on time)
+  - display How to Play.
+  - Keep track of playing time.
+  - Scores (based on time).
+  - Let the user choose styles?
+  
