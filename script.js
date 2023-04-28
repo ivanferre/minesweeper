@@ -191,7 +191,8 @@ function checkForVictory() {
     // ! DEBUG
     console.log("Check for Victory");
     console.log(`getClearedCells() - getTotalCellsToClear() = ${getClearedCells()} - ${getTotalCellsToClear()}.`)
-    return (0 == (getClearedCells() - getTotalCellsToClear()));
+    victory = (0 == (getClearedCells() - getTotalCellsToClear()));
+    return victory;
 }
 
 //
