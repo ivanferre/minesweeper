@@ -1,12 +1,24 @@
 
 // ! Set this constant to true to debug the placement of bombs without
 // ! having to click on all cells to reveal them.
-const CHEAT_REVEAL_ALL = false;
+var CHEAT_REVEAL_ALL = false;
 
-const ROWS_COUNT = 10;
-const COLS_COUNT = 10;
+var ROWS_COUNT = 10;
+var COLS_COUNT = 10;
 
-const BOMBS_COUNT = 6;
+var BOMBS_COUNT = 6;
+
+// load parameters from json file
+// TODO
+// include the fetch() statement to fetch the data from the .json file.
+function loadParameters() {
+// ! DEBUG logs ahead
+
+    console.log("Cleaning local storage...");
+    localStorage.clear();
+
+}
+
 const CELLS_TO_CLEAR = (ROWS_COUNT * COLS_COUNT) - BOMBS_COUNT;
 
 var defeat = false;
